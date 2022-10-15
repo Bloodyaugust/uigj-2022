@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
   else:
     _animated_sprite.play("idle")
 
-func _ready() -> void:
+func _enter_tree() -> void:
   if !data && scene_data:
     data = scene_data
 
