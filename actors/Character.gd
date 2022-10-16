@@ -50,7 +50,6 @@ func _physics_process(delta: float) -> void:
     move_and_collide(direction * data.speed * delta)
 #    _animated_sprite.play("walk")
     directional_walk()
-    print(direction)
   else:
 #    _animated_sprite.play("idle")
     directional_idle()
