@@ -29,7 +29,7 @@ scene_data = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 unique_name_in_owner = true
-modulate = Color( 1, 1, 1, -0.0666428 )
+modulate = Color( 1, 1, 1, 0 )
 z_index = 2
 texture = ExtResource( 2 )
 
@@ -47,3 +47,4 @@ anims/init = SubResource( 4 )
 [node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 4 )
+bus = "SFX"

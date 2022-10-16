@@ -364,7 +364,6 @@ shape = SubResource( 3 )
 unique_name_in_owner = true
 frames = SubResource( 12 )
 animation = "idle_down"
-frame = 1
 playing = true
 
 [node name="EnemyController" type="Node2D" parent="."]
@@ -377,7 +376,10 @@ texture = ExtResource( 17 )
 [node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 19 )
+volume_db = -6.0
+bus = "SFX"
 
 [node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 20 )
+bus = "SFX"

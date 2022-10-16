@@ -4,7 +4,7 @@ const RESCUE_CHARACTERS: Array = [
   preload("res://actors/characters/Archer.tscn"),
   preload("res://actors/characters/Mage.tscn"),
  ]
-const RESCUE_INTERVAL: int = 1
+const RESCUE_INTERVAL: int = 3
 const ROOM_SCENES: Array = [
   preload("res://actors/rooms/Room1.tscn"),
   preload("res://actors/rooms/Room2.tscn"),
@@ -52,14 +52,17 @@ func _on_transition_midway() -> void:
   if Store.state.transition_to == "room":
     _rooms_cleared += 1
 
-    if _rooms_cleared % RESCUE_INTERVAL == 0 && _rooms_cleared != 0 && _members_rescued < RESCUE_CHARACTERS.size():
-      party_members.append(RESCUE_CHARACTERS[_members_rescued])
-      _members_rescued += 1
+    if _rooms_cleared >= ROOM_SCENES.size():
+      Store.set_state("transition_to", "menu")
+    else:
+      if _rooms_cleared % RESCUE_INTERVAL == 0 && _rooms_cleared != 0 && _members_rescued < RESCUE_CHARACTERS.size():
+        party_members.append(RESCUE_CHARACTERS[_members_rescued])
+        _members_rescued += 1
 
-    var _new_room: TileMap = ROOM_SCENES[randi() % ROOM_SCENES.size()].instance()
+      var _new_room: TileMap = ROOM_SCENES[_rooms_cleared].instance()
 
-    _new_room.global_position = Vector2.ZERO
-    _room_container.add_child(_new_room)
+      _new_room.global_position = Vector2.ZERO
+      _room_container.add_child(_new_room)
 
   if Store.state.transition_to == "menu":
     _rooms_cleared = -1
