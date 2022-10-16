@@ -51,7 +51,7 @@ func _on_transition_midway() -> void:
 
   if Store.state.transition_to == "room":
     _rooms_cleared += 1
-    
+
     if _rooms_cleared % RESCUE_INTERVAL == 0 && _rooms_cleared != 0 && _members_rescued < RESCUE_CHARACTERS.size():
       party_members.append(RESCUE_CHARACTERS[_members_rescued])
       _members_rescued += 1
