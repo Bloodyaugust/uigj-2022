@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 attack_damage = 2.0
 attack_interval = 0.5
-attack_type = "melee"
+attack_type = "ranged"
 health = 5.0
 id = "mage"
 speed = 50.0

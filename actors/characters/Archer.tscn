@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/players/archer/archer-walk-down.png" type="Texture" id=2]
 [ext_resource path="res://sprites/players/archer/archer-attack-up.png" type="Texture" id=3]
 [ext_resource path="res://sprites/players/archer/bow.png" type="Texture" id=4]
-[ext_resource path="res://doodads/projectiles/Melee.tscn" type="PackedScene" id=5]
+[ext_resource path="res://doodads/projectiles/GreenMagicMissile.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/players/knight-Sheet.png" type="Texture" id=6]
 [ext_resource path="res://data/characters/Archer.tres" type="Resource" id=7]
 [ext_resource path="res://sprites/players/archer/archer-walk-up.png" type="Texture" id=8]
@@ -383,7 +383,6 @@ shape = SubResource( 3 )
 unique_name_in_owner = true
 frames = SubResource( 12 )
 animation = "idle_down"
-frame = 1
 playing = true
 
 [node name="Weapon" type="Sprite" parent="."]
