@@ -33,6 +33,6 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
   _area2d.connect("body_entered", self, "_on_body_entered")
-  
+
   _sprite.texture = data.sprite
   _time_to_die = data.lifetime
