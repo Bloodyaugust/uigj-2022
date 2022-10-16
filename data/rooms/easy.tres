@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-difficulty = 0.0
+difficulty = 1.0
