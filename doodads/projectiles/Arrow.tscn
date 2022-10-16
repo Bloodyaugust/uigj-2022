@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://doodads/Projectile.gd" type="Script" id=1]
+[ext_resource path="res://sprites/players/archer/arrow.png" type="Texture" id=2]
+[ext_resource path="res://data/projectiles/Arrow.tres" type="Resource" id=3]
+[ext_resource path="res://resources/sfx/Hit 4.wav" type="AudioStream" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.0
+height = 12.0
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource( 1 )
+scene_data = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+unique_name_in_owner = true
+z_index = 2
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 24, 7 )
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 4 )
+volume_db = -6.0
