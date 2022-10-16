@@ -51,7 +51,7 @@ func _on_store_state_changed(state_key: String, substate) -> void:
           call_deferred("start_game")
         GameConstants.GAME_OVER:
           _music_calm.play()
-          _music_combat.stop()          
+          _music_combat.stop()
 
 func _on_transition_midway() -> void:
   GDUtil.queue_free_children(_enemy_container)
