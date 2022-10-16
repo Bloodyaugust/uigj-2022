@@ -18,24 +18,24 @@ mkdir build/win/
 
 echo "EXPORTING FOR LINUX"
 echo "-----------------------------"
-godot --export "Linux/X11" build/linux/uigj-2022.x86_64 -v
+godot --export "Linux/X11" build/linux/pack-hunters.x86_64 -v
 # echo "EXPORTING FOR OSX"
 # echo "-----------------------------"
-# godot --export "Mac OSX" build/osx/uigj-2022.dmg -v
+# godot --export "Mac OSX" build/osx/pack-hunters.dmg -v
 echo "EXPORTING FOR WINDOZE"
 echo "-----------------------------"
-godot --export-debug "Windows Desktop" build/win/uigj-2022.exe -v
+godot --export-debug "Windows Desktop" build/win/pack-hunters.exe -v
 echo "-----------------------------"
 
 # echo "CHANGING FILETYPE AND CHMOD EXECUTABLE FOR OSX"
 # echo "-----------------------------"
 # cd build/osx/
-# mv uigj-2022.dmg uigj-2022-osx-alpha.zip
-# unzip uigj-2022-osx-alpha.zip
-# rm uigj-2022-osx-alpha.zip
-# chmod +x uigj-2022.app/Contents/MacOS/uigj-2022
-# zip -r uigj-2022-osx-alpha.zip uigj-2022.app
-# rm -rf uigj-2022.app
+# mv pack-hunters.dmg pack-hunters-osx-alpha.zip
+# unzip pack-hunters-osx-alpha.zip
+# rm pack-hunters-osx-alpha.zip
+# chmod +x pack-hunters.app/Contents/MacOS/pack-hunters
+# zip -r pack-hunters-osx-alpha.zip pack-hunters.app
+# rm -rf pack-hunters.app
 # cd ../../
 
 ls -al
@@ -47,15 +47,15 @@ ls -al build/win/
 echo "ZIPPING FOR WINDOZE"
 echo "-----------------------------"
 cd build/win/
-zip -r uigj-2022-win-alpha.zip uigj-2022.exe uigj-2022.pck
-rm -r uigj-2022.exe uigj-2022.pck
+zip -r pack-hunters-win-alpha.zip pack-hunters.exe pack-hunters.pck
+rm -r pack-hunters.exe pack-hunters.pck
 cd ../../
 
 echo "ZIPPING FOR LINUX"
 echo "-----------------------------"
 cd build/linux/
-zip -r uigj-2022-linux-alpha.zip uigj-2022.x86_64 uigj-2022.pck
-rm -r uigj-2022.x86_64 uigj-2022.pck
+zip -r pack-hunters-linux-alpha.zip pack-hunters.x86_64 pack-hunters.pck
+rm -r pack-hunters.x86_64 pack-hunters.pck
 cd ../../
 
 echo "Logging in to Butler"
