@@ -149,4 +149,5 @@ file_logging/enable_file_logging=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.223529, 0.0352941, 0.278431, 1 )
 environment/default_environment="res://default_env.tres"
