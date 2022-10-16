@@ -1,5 +1,6 @@
 extends TileMap
 
+const CHARACTER_SPAWN_RADIUS: float = 15.0
 const CHARACTER_SCENES: Array = [
   preload("res://actors/characters/Fighter.tscn"),
   preload("res://actors/characters/Mage.tscn"),
@@ -69,9 +70,15 @@ func _ready() -> void:
     _enemy_container.add_child(_new_enemy)
     _enemies.append(_new_enemy)
 
-  var _player_character: Node2D = CHARACTER_SCENES[0].instance()
-  var _player_controller: Node = PLAYER_SCRIPT.new()
+  var _player_controller_added: bool = false
+  for _character_scene in GameController.party_members:
+    var _player_character: Node2D = _character_scene.instance()
 
-  _player_character.add_child(_player_controller)
-  _player_container.add_child(_player_character)
-  _characters.append(_player_character)
+    if !_player_controller_added:
+      var _player_controller: Node = PLAYER_SCRIPT.new()
+      _player_character.add_child(_player_controller)
+      _player_controller_added = true
+
+    _player_character.global_position = _player_spawn.global_position + Vector2(rand_range(-CHARACTER_SPAWN_RADIUS, CHARACTER_SPAWN_RADIUS), rand_range(-CHARACTER_SPAWN_RADIUS, CHARACTER_SPAWN_RADIUS))
+    _player_container.add_child(_player_character)
+    _characters.append(_player_character)
