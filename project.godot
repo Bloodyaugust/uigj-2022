@@ -62,7 +62,10 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Godot Template Project"
+config/name="Pack Hunters"
+config/description="Reconnect with your party and clear the dungeon!
+
+Supports WASD/Mouse and Gamepad controls.​"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
 
