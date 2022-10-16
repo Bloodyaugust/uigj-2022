@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource( 1 )
 attack_damage = 2.0
-attack_interval = 0.5
+attack_interval = 1.5
 attack_type = "ranged"
-health = 5.0
+health = 2.0
 id = "archer"
-speed = 50.0
+speed = 25.0
