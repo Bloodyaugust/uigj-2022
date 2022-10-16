@@ -1,5 +1,6 @@
 extends TileMap
 
+const AI_CHARACTER_SCRIPT: Script = preload("res://scripts/controllers/AICharacterController.gd")
 const CHARACTER_SPAWN_RADIUS: float = 15.0
 const CHARACTER_SCENES: Array = [
   preload("res://actors/characters/Fighter.tscn"),
@@ -78,6 +79,9 @@ func _ready() -> void:
       var _player_controller: Node = PLAYER_SCRIPT.new()
       _player_character.add_child(_player_controller)
       _player_controller_added = true
+    else:
+      var _ai_controller: Node = AI_CHARACTER_SCRIPT.new()
+      _player_character.add_child(_ai_controller)
 
     _player_character.global_position = _player_spawn.global_position + Vector2(rand_range(-CHARACTER_SPAWN_RADIUS, CHARACTER_SPAWN_RADIUS), rand_range(-CHARACTER_SPAWN_RADIUS, CHARACTER_SPAWN_RADIUS))
     _player_container.add_child(_player_character)

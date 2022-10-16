@@ -373,7 +373,7 @@ script = ExtResource( 2 )
 unique_name_in_owner = true
 texture = ExtResource( 17 )
 
-[node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
+[node name="AttackSFX" type="AudioStreamPlayer2D" parent="." groups=["enemies"]]
 unique_name_in_owner = true
 stream = ExtResource( 19 )
 volume_db = -6.0

@@ -378,7 +378,7 @@ unique_name_in_owner = true
 stream = ExtResource( 19 )
 bus = "SFX"
 
-[node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
+[node name="HurtSFX" type="AudioStreamPlayer2D" parent="." groups=["enemies"]]
 unique_name_in_owner = true
 stream = ExtResource( 20 )
 bus = "SFX"
