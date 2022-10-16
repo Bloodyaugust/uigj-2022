@@ -12,6 +12,7 @@ const PLAYER_SCRIPT: Script = preload("res://scripts/controllers/PlayerControlle
 
 export var scene_data: Resource
 
+onready var _door: Node2D = find_node("HorizontalDoor")
 onready var _enemy_container: Node = get_tree().get_root().find_node("EnemyContainer", true, false)
 onready var _enemy_spawns: Node2D = $"%EnemySpawns"
 onready var _exit_room: Area2D = $"%ExitRoom"
@@ -20,16 +21,44 @@ onready var _player_spawn: Node2D = $"%PlayerSpawn"
 
 var room_data: RoomData
 
+var _cleared: bool = false
+var _enemies: Array = []
+var _characters: Array = []
+
 func _enter_tree() -> void:
   room_data = scene_data
 
 func _on_exit_room_body_enetered(body: Node) -> void:
-  # TODO: Get the next room, transition, do the stuff
-  print("room exited")
+  GameController.begin_transition()
+
+func _on_transition_midway() -> void:
+  queue_free()
+
+func _process(delta: float) -> void:
+  if !_cleared:
+    var _dead_enemies: int = 0
+    var _dead_characters: int = 0
+
+    for _enemy in _enemies:
+      if !GDUtil.reference_safe(_enemy):
+        _dead_enemies += 1
+
+    for _character in _characters:
+      if !GDUtil.reference_safe(_character):
+        _dead_characters += 1
+
+    if _dead_enemies == _enemies.size():
+      _cleared = true
+      _door.open()
+    elif _dead_characters == _characters.size():
+      _cleared = true
+      Store.set_state("transition_to", "menu")
+      GameController.begin_transition()
 
 func _ready() -> void:
   var _enemy_spawn_points: Array = _enemy_spawns.get_children()
 
+  Store.connect("transition_midway", self, "_on_transition_midway")
   _exit_room.connect("body_entered", self, "_on_exit_room_body_enetered")
 
   for _i in range(room_data.difficulty):
@@ -38,9 +67,11 @@ func _ready() -> void:
     _new_enemy.global_position = _enemy_spawn_points[_i].global_position
 
     _enemy_container.add_child(_new_enemy)
+    _enemies.append(_new_enemy)
 
   var _player_character: Node2D = CHARACTER_SCENES[0].instance()
   var _player_controller: Node = PLAYER_SCRIPT.new()
 
   _player_character.add_child(_player_controller)
   _player_container.add_child(_player_character)
+  _characters.append(_player_character)

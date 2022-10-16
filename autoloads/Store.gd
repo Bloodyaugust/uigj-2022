@@ -1,6 +1,8 @@
 extends Node
 
 signal state_changed(state_key, substate)
+signal transition_completed()
+signal transition_midway()
 
 var persistent_store:PersistentStore
 var state: Dictionary = {
@@ -20,7 +22,7 @@ func set_state(state_key: String, new_state) -> void:
   state[state_key] = new_state
   emit_signal("state_changed", state_key, state[state_key])
   print("State changed: ", state_key, " -> ", state[state_key])
-  
+
 func _initialize():
   set_state("client_view", ClientConstants.CLIENT_VIEW_SPLASH)
   set_state("game", GameConstants.GAME_OVER)
