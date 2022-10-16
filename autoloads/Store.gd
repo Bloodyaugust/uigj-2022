@@ -1,6 +1,8 @@
 extends Node
 
 signal state_changed(state_key, substate)
+signal transition_completed()
+signal transition_midway()
 
 var persistent_store:PersistentStore
 var state: Dictionary = {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://views/FPS.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://views/MainMenu.gd" type="Script" id=4]
 [ext_resource path="res://lib/BetterCam.tscn" type="PackedScene" id=5]
 [ext_resource path="res://views/Splash.gd" type="Script" id=6]
-[ext_resource path="res://actors/rooms/Easy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/controllers/TransitionController.gd" type="Script" id=7]
 [ext_resource path="res://resources/music/Combat Theme.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
@@ -49,6 +49,50 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "transition_midway"
+}, {
+"args": [  ],
+"method": "transition_completed"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [node name="Node2D" type="Node2D"]
@@ -148,13 +192,23 @@ stretch_mode = 6
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UIRoot/Splash"]
 anims/ui_show = SubResource( 2 )
 
+[node name="Transition" type="ColorRect" parent="UIRoot"]
+visible = false
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 7 )
+
+[node name="TransitionAnimationPlayer" type="AnimationPlayer" parent="UIRoot/Transition"]
+unique_name_in_owner = true
+anims/transition = SubResource( 3 )
+
 [node name="BetterCam" parent="." instance=ExtResource( 5 )]
 zoom = Vector2( 0.425, 0.425 )
 key_movement = false
 zoom_min = 0.25
 zoom_max = 0.25
-
-[node name="Room" parent="." instance=ExtResource( 10 )]
 
 [node name="EnemyContainer" type="Node" parent="."]
 
@@ -164,3 +218,5 @@ zoom_max = 0.25
 stream = ExtResource( 11 )
 autoplay = true
 bus = "Music"
+
+[node name="RoomContainer" type="Node" parent="."]
