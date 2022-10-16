@@ -362,6 +362,7 @@ shape = SubResource( 3 )
 unique_name_in_owner = true
 frames = SubResource( 12 )
 animation = "idle_down"
+frame = 1
 playing = true
 
 [node name="EnemyController" type="Node2D" parent="."]
