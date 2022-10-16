@@ -18,7 +18,7 @@
 [ext_resource path="res://sprites/players/knight-Sheet.png" type="Texture" id=16]
 [ext_resource path="res://sprites/enemies/witch/green-staff.png" type="Texture" id=17]
 [ext_resource path="res://doodads/projectiles/GreenMagicMissile.tscn" type="PackedScene" id=18]
-[ext_resource path="res://resources/sfx/Sword Swish 2.wav" type="AudioStream" id=19]
+[ext_resource path="res://resources/sfx/Fire Attack.wav" type="AudioStream" id=19]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 6.08276
@@ -363,7 +363,6 @@ shape = SubResource( 3 )
 unique_name_in_owner = true
 frames = SubResource( 12 )
 animation = "idle_down"
-frame = 1
 playing = true
 
 [node name="EnemyController" type="Node2D" parent="."]
