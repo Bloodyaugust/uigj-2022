@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/players/archer/archer-walk-down.png" type="Texture" id=2]
 [ext_resource path="res://sprites/players/archer/archer-attack-up.png" type="Texture" id=3]
 [ext_resource path="res://sprites/players/archer/bow.png" type="Texture" id=4]
-[ext_resource path="res://doodads/projectiles/GreenMagicMissile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://doodads/projectiles/Arrow.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/players/knight-Sheet.png" type="Texture" id=6]
 [ext_resource path="res://data/characters/Archer.tres" type="Resource" id=7]
 [ext_resource path="res://sprites/players/archer/archer-walk-up.png" type="Texture" id=8]
@@ -390,14 +390,11 @@ unique_name_in_owner = true
 position = Vector2( 18, 0 )
 z_index = 1
 texture = ExtResource( 4 )
-hframes = 2
 
 [node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 18 )
-bus = "SFX"
 
 [node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 19 )
-bus = "SFX"
