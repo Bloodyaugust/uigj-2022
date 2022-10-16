@@ -8,6 +8,7 @@ export var scene_data: Resource
 var aim_direction: Vector2 = Vector2.RIGHT
 var data: CharacterData
 var direction: Vector2 = Vector2.ZERO
+var last_direction: Vector2 = Vector2.ZERO
 var health: float
 
 onready var _animated_sprite: AnimatedSprite = $"%AnimatedSprite"
@@ -47,11 +48,40 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
   if direction.length_squared() > 0:
     move_and_collide(direction * data.speed * delta)
-    _animated_sprite.play("walk")
+#    _animated_sprite.play("walk")
+    directional_walk()
+    print(direction)
   else:
-    _animated_sprite.play("idle")
+#    _animated_sprite.play("idle")
+    directional_idle()
 
 func _enter_tree() -> void:
   if !data && scene_data:
     data = scene_data
   health = data.health
+
+
+func directional_walk():
+  last_direction = direction
+  if direction.x > 0:
+    _animated_sprite.play("walk_right")
+  elif direction.x < 0:
+    _animated_sprite.play("walk_left")
+  elif direction.y > 0:
+    _animated_sprite.play("walk_down")
+  elif direction.y < 0:
+    _animated_sprite.play("walk_up")
+  else:
+    _animated_sprite.play("walk")
+
+func directional_idle():
+  if last_direction.x > 0:
+    _animated_sprite.play("idle_right")
+  elif last_direction.x < 0:
+    _animated_sprite.play("idle_left")
+  elif last_direction.y > 0:
+    _animated_sprite.play("idle_down")
+  elif last_direction.y < 0:
+    _animated_sprite.play("idle_up")
+  else:
+    _animated_sprite.play("idle")
