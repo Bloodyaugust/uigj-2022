@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Fire Attack.wav-76204d3cb53cf33b2ee82f7b14795028.sample"
+path="res://.import/Victory Stinger.wav-9bc0780f9694e6118225bb2a3d641057.sample"
 
 [deps]
 
-source_file="res://resources/sfx/Fire Attack.wav"
-dest_files=[ "res://.import/Fire Attack.wav-76204d3cb53cf33b2ee82f7b14795028.sample" ]
+source_file="res://resources/sfx/Victory Stinger.wav"
+dest_files=[ "res://.import/Victory Stinger.wav-9bc0780f9694e6118225bb2a3d641057.sample" ]
 
 [params]
 
