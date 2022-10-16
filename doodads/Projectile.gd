@@ -8,6 +8,7 @@ var hits_group: String
 
 onready var _area2d: Area2D = $"%Area2D"
 onready var _sprite: Sprite = $"%Sprite"
+onready var _hit_sfx: AudioStreamPlayer2D = $"%HitSFX"
 
 var _time_to_die: float
 
@@ -16,6 +17,7 @@ func _enter_tree() -> void:
 
 func _on_body_entered(body: Node) -> void:
   if body.is_in_group(hits_group) && body.has_method("damage"):
+    _hit_sfx.play()
     body.damage(data.damage)
 
   if data.moves:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://actors/Character.gd" type="Script" id=1]
 [ext_resource path="res://sprites/players/archer/archer-walk-down.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://sprites/players/archer/archer-attack-left.png" type="Texture" id=16]
 [ext_resource path="res://sprites/players/archer/archer-attack-right.png" type="Texture" id=17]
 [ext_resource path="res://resources/sfx/Sword Swish 2.wav" type="AudioStream" id=18]
+[ext_resource path="res://resources/sfx/Hit 1.wav" type="AudioStream" id=19]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 6.08276
@@ -382,7 +383,6 @@ shape = SubResource( 3 )
 unique_name_in_owner = true
 frames = SubResource( 12 )
 animation = "idle_down"
-frame = 1
 playing = true
 
 [node name="Weapon" type="Sprite" parent="."]
@@ -395,3 +395,7 @@ hframes = 2
 [node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 18 )
+
+[node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 19 )

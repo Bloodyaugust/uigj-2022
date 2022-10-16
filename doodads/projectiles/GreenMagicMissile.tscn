@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://doodads/Projectile.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/witch/green-fireball.png" type="Texture" id=2]
 [ext_resource path="res://data/projectiles/MagicMissile.tres" type="Resource" id=3]
+[ext_resource path="res://resources/sfx/Hit 3.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 14.0357
@@ -23,3 +24,7 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 4 )

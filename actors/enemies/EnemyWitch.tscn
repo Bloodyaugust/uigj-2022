@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://actors/Character.gd" type="Script" id=1]
 [ext_resource path="res://scripts/controllers/EnemyController.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://sprites/enemies/witch/green-staff.png" type="Texture" id=17]
 [ext_resource path="res://doodads/projectiles/GreenMagicMissile.tscn" type="PackedScene" id=18]
 [ext_resource path="res://resources/sfx/Fire Attack.wav" type="AudioStream" id=19]
+[ext_resource path="res://resources/sfx/Hit 1.wav" type="AudioStream" id=20]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 6.08276
@@ -363,6 +364,7 @@ shape = SubResource( 3 )
 unique_name_in_owner = true
 frames = SubResource( 12 )
 animation = "idle_down"
+frame = 1
 playing = true
 
 [node name="EnemyController" type="Node2D" parent="."]
@@ -375,3 +377,7 @@ texture = ExtResource( 17 )
 [node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 19 )
+
+[node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 20 )

@@ -13,6 +13,7 @@ var health: float
 onready var _animated_sprite: AnimatedSprite = $"%AnimatedSprite"
 onready var _weapon: Sprite = $"%Weapon"
 onready var _attack_sfx: AudioStreamPlayer2D = $"%AttackSFX"
+onready var _hurt_sfx: AudioStreamPlayer2D = $"%HurtSFX"
 
 var _time_to_attack: float = 0.0
 
@@ -32,6 +33,7 @@ func attack() -> void:
     get_tree().get_root().add_child(_new_projectile)
 
 func damage(amount: float) -> void:
+  _hurt_sfx.play()
   health = clamp(health - amount, 0.0, data.health)
   if health <= 0.0:
     queue_free()

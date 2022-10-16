@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://doodads/Projectile.gd" type="Script" id=1]
 [ext_resource path="res://sprites/players/fighter/slash.png" type="Texture" id=2]
 [ext_resource path="res://data/projectiles/Melee.tres" type="Resource" id=3]
+[ext_resource path="res://resources/sfx/Sword Clash 2.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 14.0357
@@ -28,7 +29,7 @@ scene_data = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 unique_name_in_owner = true
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, -0.0666428 )
 z_index = 2
 texture = ExtResource( 2 )
 
@@ -42,3 +43,7 @@ shape = SubResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "init"
 anims/init = SubResource( 4 )
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 4 )
