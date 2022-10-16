@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://data/characters/Fighter.tres" type="Resource" id=1]
 [ext_resource path="res://sprites/players/knight-Sheet.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://sprites/players/fighter/fighter-walk-up.png" type="Texture" id=15]
 [ext_resource path="res://sprites/players/fighter/sword.png" type="Texture" id=16]
 [ext_resource path="res://doodads/projectiles/Melee.tscn" type="PackedScene" id=17]
+[ext_resource path="res://resources/sfx/Sword Swish 2.wav" type="AudioStream" id=18]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 6.08276
@@ -381,6 +382,7 @@ shape = SubResource( 3 )
 unique_name_in_owner = true
 frames = SubResource( 12 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Weapon" type="Sprite" parent="."]
@@ -388,3 +390,7 @@ unique_name_in_owner = true
 position = Vector2( 18, 0 )
 z_index = 1
 texture = ExtResource( 16 )
+
+[node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 18 )

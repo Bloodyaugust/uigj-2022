@@ -12,6 +12,7 @@ var health: float
 
 onready var _animated_sprite: AnimatedSprite = $"%AnimatedSprite"
 onready var _weapon: Sprite = $"%Weapon"
+onready var _attack_sfx: AudioStreamPlayer2D = $"%AttackSFX"
 
 var _time_to_attack: float = 0.0
 
@@ -19,6 +20,7 @@ func attack() -> void:
   if _time_to_attack <= 0.0:
     _time_to_attack = data.attack_interval
     print("attacked")
+    _attack_sfx.play()
     var _new_projectile: Node2D = projectile_scene.instance()
 
     _new_projectile.global_position = _weapon.global_position
