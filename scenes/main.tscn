@@ -6,7 +6,7 @@
 [ext_resource path="res://views/MainMenu.gd" type="Script" id=4]
 [ext_resource path="res://lib/BetterCam.tscn" type="PackedScene" id=5]
 [ext_resource path="res://views/Splash.gd" type="Script" id=6]
-[ext_resource path="res://actors/rooms/Easy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actors/rooms/Room4.tscn" type="PackedScene" id=7]
 [ext_resource path="res://resources/music/Combat Theme.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
@@ -154,8 +154,6 @@ key_movement = false
 zoom_min = 0.25
 zoom_max = 0.25
 
-[node name="Room" parent="." instance=ExtResource( 10 )]
-
 [node name="EnemyContainer" type="Node" parent="."]
 
 [node name="PlayerContainer" type="Node" parent="."]
@@ -164,3 +162,5 @@ zoom_max = 0.25
 stream = ExtResource( 11 )
 autoplay = true
 bus = "Music"
+
+[node name="Room" parent="." instance=ExtResource( 7 )]
