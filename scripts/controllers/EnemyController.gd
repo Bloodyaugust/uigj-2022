@@ -1,7 +1,7 @@
 extends Node2D
 
 const MELEE_ATTACK_RANGE: float = 40.0
-const RANGED_ATTACK_RANGE: float = 250.0
+const RANGED_ATTACK_RANGE: float = 150.0
 
 onready var character: KinematicBody2D = get_parent()
 
