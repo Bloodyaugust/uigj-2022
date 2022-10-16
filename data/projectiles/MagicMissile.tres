@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://data/projectile-data.gd" type="Script" id=1]
+[ext_resource path="res://sprites/players/mage/fireball.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+damage = 1.0
+lifetime = 5.0
+moves = true
+speed = 75.0
+sprite = ExtResource( 2 )

@@ -18,6 +18,9 @@ func _on_body_entered(body: Node) -> void:
   if body.is_in_group(hits_group) && body.has_method("damage"):
     body.damage(data.damage)
 
+  if data.moves:
+    queue_free()
+
 func _physics_process(delta: float) -> void:
   if data.moves:
     global_position += direction * data.speed * delta

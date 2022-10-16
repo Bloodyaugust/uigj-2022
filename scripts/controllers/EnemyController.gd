@@ -1,6 +1,7 @@
 extends Node2D
 
 const MELEE_ATTACK_RANGE: float = 40.0
+const RANGED_ATTACK_RANGE: float = 250.0
 
 onready var character: KinematicBody2D = get_parent()
 
@@ -27,14 +28,19 @@ func _process(delta):
     "melee":
       if global_position.distance_to(_target.global_position) > MELEE_ATTACK_RANGE:
         _movement_direction = global_position.direction_to(_target.global_position)
+    "ranged":
+      if global_position.distance_to(_target.global_position) <= RANGED_ATTACK_RANGE:
+        _movement_direction = -global_position.direction_to(_target.global_position)
 
   character.direction = _movement_direction
-  character.aim_direction = _movement_direction
+  character.aim_direction = global_position.direction_to(_target.global_position)
 
   match character_data.attack_type:
     "melee":
       if global_position.distance_to(_target.global_position) <= MELEE_ATTACK_RANGE:
         character.attack()
+    "ranged":
+      character.attack()
 
 func _ready() -> void:
   character_data = character.data

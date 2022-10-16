@@ -19,16 +19,15 @@ func attack() -> void:
   if _time_to_attack <= 0.0:
     _time_to_attack = data.attack_interval
     print("attacked")
-    match data.attack_type:
-      "melee":
-        var _new_projectile: Node2D = projectile_scene.instance()
+    var _new_projectile: Node2D = projectile_scene.instance()
 
-        _new_projectile.global_position = _weapon.global_position
-        _new_projectile.global_rotation = _weapon.global_position.angle_to_point(global_position)
+    _new_projectile.global_position = _weapon.global_position
+    _new_projectile.global_rotation = _weapon.global_position.angle_to_point(global_position)
+    _new_projectile.direction = global_position.direction_to(_weapon.global_position)
 
-        _new_projectile.hits_group = "characters" if is_in_group("enemies") else "enemies"
+    _new_projectile.hits_group = "characters" if is_in_group("enemies") else "enemies"
 
-        get_tree().get_root().add_child(_new_projectile)
+    get_tree().get_root().add_child(_new_projectile)
 
 func damage(amount: float) -> void:
   health = clamp(health - amount, 0.0, data.health)

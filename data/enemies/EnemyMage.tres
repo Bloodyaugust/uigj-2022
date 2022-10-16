@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://data/character-data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+attack_damage = 1.0
+attack_interval = 2.5
+attack_type = "ranged"
+health = 2.0
+id = "enemy-mage"
+speed = 15.0

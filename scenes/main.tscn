@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://views/FPS.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://actors/enemies/Basic.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/controllers/PlayerController.gd" type="Script" id=9]
 [ext_resource path="res://actors/rooms/Easy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actors/enemies/EnemyMage.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ui_show"
@@ -167,3 +168,6 @@ script = ExtResource( 9 )
 
 [node name="Basic" parent="." instance=ExtResource( 8 )]
 position = Vector2( 128, 42 )
+
+[node name="Mage" parent="." instance=ExtResource( 11 )]
+position = Vector2( 120, -30 )
