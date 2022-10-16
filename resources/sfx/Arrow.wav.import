@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Fire Attack.wav-76204d3cb53cf33b2ee82f7b14795028.sample"
+path="res://.import/Arrow.wav-736883090c1062cb481aad7922c83814.sample"
 
 [deps]
 
-source_file="res://resources/sfx/Fire Attack.wav"
-dest_files=[ "res://.import/Fire Attack.wav-76204d3cb53cf33b2ee82f7b14795028.sample" ]
+source_file="res://resources/sfx/Arrow.wav"
+dest_files=[ "res://.import/Arrow.wav-736883090c1062cb481aad7922c83814.sample" ]
 
 [params]
 

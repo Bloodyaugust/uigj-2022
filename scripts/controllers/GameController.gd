@@ -26,6 +26,9 @@ onready var _enemy_container: Node = get_tree().get_root().find_node("EnemyConta
 onready var _player_container: Node = get_tree().get_root().find_node("PlayerContainer", true, false)
 onready var _room_container: Node = get_tree().get_root().find_node("RoomContainer", true, false)
 onready var _transition: ColorRect = get_tree().get_root().find_node("Transition", true, false)
+onready var _music_combat: AudioStreamPlayer = get_tree().get_root().find_node("CombatMusic", true, false)
+onready var _music_calm: AudioStreamPlayer = get_tree().get_root().find_node("CalmMusic", true, false)
+onready var _music_victory: AudioStreamPlayer = get_tree().get_root().find_node("VictorySFX", true, false)
 
 var _rooms_cleared: int = -1
 var _members_rescued: int = 0
@@ -43,7 +46,12 @@ func _on_store_state_changed(state_key: String, substate) -> void:
     "game":
       match substate:
         GameConstants.GAME_STARTING:
+          _music_calm.stop()
+          _music_combat.play()
           call_deferred("start_game")
+        GameConstants.GAME_OVER:
+          _music_calm.play()
+          _music_combat.stop()          
 
 func _on_transition_midway() -> void:
   GDUtil.queue_free_children(_enemy_container)
@@ -54,6 +62,7 @@ func _on_transition_midway() -> void:
 
     if _rooms_cleared >= ROOM_SCENES.size():
       Store.set_state("transition_to", "menu")
+      _music_victory.play()
     else:
       if _rooms_cleared % RESCUE_INTERVAL == 0 && _rooms_cleared != 0 && _members_rescued < RESCUE_CHARACTERS.size():
         party_members.append(RESCUE_CHARACTERS[_members_rescued])
