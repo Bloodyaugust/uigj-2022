@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://data/characters/Fighter.tres" type="Resource" id=1]
 [ext_resource path="res://sprites/players/knight-Sheet.png" type="Texture" id=2]
@@ -15,7 +15,8 @@
 [ext_resource path="res://sprites/players/fighter/fighter-attack-up.png" type="Texture" id=13]
 [ext_resource path="res://sprites/players/fighter/fighter-idle-right.png" type="Texture" id=14]
 [ext_resource path="res://sprites/players/fighter/fighter-walk-up.png" type="Texture" id=15]
-[ext_resource path="res://icon.png" type="Texture" id=16]
+[ext_resource path="res://sprites/players/fighter/sword.png" type="Texture" id=16]
+[ext_resource path="res://doodads/projectiles/Melee.tscn" type="PackedScene" id=17]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 6.08276
@@ -369,6 +370,7 @@ animations = [ {
 
 [node name="Fighter" type="KinematicBody2D" groups=["characters"]]
 script = ExtResource( 3 )
+projectile_scene = ExtResource( 17 )
 scene_data = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -383,7 +385,6 @@ playing = true
 
 [node name="Weapon" type="Sprite" parent="."]
 unique_name_in_owner = true
-position = Vector2( 12, 0 )
-scale = Vector2( 0.15, 0.15 )
+position = Vector2( 18, 0 )
 z_index = 1
 texture = ExtResource( 16 )
