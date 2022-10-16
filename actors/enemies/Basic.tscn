@@ -399,7 +399,9 @@ texture = ExtResource( 1 )
 [node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 19 )
+bus = "SFX"
 
 [node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 20 )
+bus = "SFX"
