@@ -379,8 +379,7 @@ shape = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
 frames = SubResource( 12 )
-animation = "walk_up"
-frame = 1
+animation = "idle_down"
 playing = true
 
 [node name="EnemyController" type="Node2D" parent="."]
