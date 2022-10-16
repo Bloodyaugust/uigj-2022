@@ -229,4 +229,3 @@ bus = "Music"
 
 [node name="VictorySFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-bus = "SFX"
