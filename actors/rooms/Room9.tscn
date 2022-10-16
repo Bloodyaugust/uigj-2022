@@ -153,10 +153,10 @@ position = Vector2( -152, 16 )
 position = Vector2( -152, 72 )
 
 [node name="Point4" type="Node2D" parent="EnemySpawns"]
-position = Vector2( -96, -40 )
+position = Vector2( 64, -16 )
 
 [node name="Point5" type="Node2D" parent="EnemySpawns"]
-position = Vector2( -96, 16 )
+position = Vector2( 64, 40 )
 
 [node name="Point6" type="Node2D" parent="EnemySpawns"]
 position = Vector2( -96, 72 )
@@ -176,12 +176,9 @@ position = Vector2( 152, -40 )
 [node name="Point11" type="Node2D" parent="EnemySpawns"]
 position = Vector2( 152, 16 )
 
-[node name="Point12" type="Node2D" parent="EnemySpawns"]
-position = Vector2( 152, 72 )
-
 [node name="PlayerSpawn" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2( 0, 80 )
+position = Vector2( -48, -32 )
 
 [node name="ExitRoom" type="Area2D" parent="."]
 unique_name_in_owner = true
