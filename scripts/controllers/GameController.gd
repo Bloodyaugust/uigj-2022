@@ -6,8 +6,16 @@ const RESCUE_CHARACTERS: Array = [
  ]
 const RESCUE_INTERVAL: int = 1
 const ROOM_SCENES: Array = [
-  preload("res://actors/rooms/Easy.tscn"),
   preload("res://actors/rooms/Room1.tscn"),
+  preload("res://actors/rooms/Room2.tscn"),
+  preload("res://actors/rooms/Room3.tscn"),
+  preload("res://actors/rooms/Room4.tscn"),
+  preload("res://actors/rooms/Room5.tscn"),
+  preload("res://actors/rooms/Room6.tscn"),
+  preload("res://actors/rooms/Room7.tscn"),
+  preload("res://actors/rooms/Room8.tscn"),
+  preload("res://actors/rooms/Room9.tscn"),
+  preload("res://actors/rooms/Room10.tscn")
  ]
 
 var party_members: Array = [
