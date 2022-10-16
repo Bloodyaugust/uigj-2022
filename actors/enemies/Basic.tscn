@@ -81,3 +81,7 @@ playing = true
 
 [node name="EnemyController" type="Node2D" parent="."]
 script = ExtResource( 4 )
+
+[node name="Weapon" type="Sprite" parent="."]
+unique_name_in_owner = true
+z_index = 1

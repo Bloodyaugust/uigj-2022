@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://data/characters/Fighter.tres" type="Resource" id=1]
 [ext_resource path="res://sprites/players/knight-Sheet.png" type="Texture" id=2]
 [ext_resource path="res://actors/Character.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 6.08276
@@ -75,3 +76,10 @@ unique_name_in_owner = true
 frames = SubResource( 12 )
 animation = "idle"
 playing = true
+
+[node name="Weapon" type="Sprite" parent="."]
+unique_name_in_owner = true
+position = Vector2( 12, 0 )
+scale = Vector2( 0.15, 0.15 )
+z_index = 1
+texture = ExtResource( 4 )

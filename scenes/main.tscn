@@ -163,7 +163,7 @@ position = Vector2( -160, -45 )
 position = Vector2( 7, 1 )
 script = ExtResource( 9 )
 
-[node name="Basic" parent="." instance=ExtResource( 8 )]
-position = Vector2( 112, 62 )
-
 [node name="Room" parent="." instance=ExtResource( 10 )]
+
+[node name="Basic" parent="." instance=ExtResource( 8 )]
+position = Vector2( 128, 42 )
