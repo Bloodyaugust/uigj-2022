@@ -20,6 +20,9 @@ func _on_body_entered(body: Node) -> void:
     _hit_sfx.play()
     body.damage(data.damage)
 
+    if data.moves:
+      queue_free()
+
   if data.moves && !body.is_in_group("enemies") && !body.is_in_group("characters"):
     queue_free()
 
